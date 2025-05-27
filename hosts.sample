@@ -1,5 +1,6 @@
 [webservers]
-host.example.com domain_name="streamer.example.com"
+#host.example.com domain_name="streamer.example.com"
+localhost ansible_connection=local domain_name="streamer.example.com"
 
 [webservers:vars]
 email="ivan@example.com"
