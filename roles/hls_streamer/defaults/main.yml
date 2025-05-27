@@ -1,0 +1,4 @@
+domain_name: example.com
+email: admin@example.com
+webroot_path: /var/www/html
+enable_ipv6: false

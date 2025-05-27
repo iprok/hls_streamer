@@ -1,0 +1,26 @@
+- name: Download nginx GPG key
+  get_url:
+    url: https://nginx.org/keys/nginx_signing.key
+    dest: /usr/share/keyrings/nginx-archive-keyring.asc
+    mode: "0644"
+
+- name: Add nginx vendor repository
+  apt_repository:
+    repo: >
+      deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.asc]
+      http://nginx.org/packages/{{ ansible_distribution | lower }}
+      {{ ansible_distribution_release }} nginx
+    filename: nginx
+    state: present
+    update_cache: true
+
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Ensure nginx is running
+  service:
+    name: nginx
+    state: started
+    enabled: true

@@ -1,0 +1,8 @@
+- name: Install nginx from vendor repo
+  include_tasks: install_nginx.yml
+
+- name: Setup certbot and SSL
+  include_tasks: certbot.yml
+
+- name: Enable HTTPS virtual host
+  include_tasks: enable_https.yml

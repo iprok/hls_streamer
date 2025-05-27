@@ -1,0 +1,7 @@
+[webservers]
+host.example.com domain_name="streamer.example.com"
+
+[webservers:vars]
+email="ivan@example.com"
+webroot_path="/var/www/html"
+enable_ipv6=true

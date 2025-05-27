@@ -1,0 +1,18 @@
+server {
+    listen 80 default_server;
+    {% if enable_ipv6 %}
+    listen [::]:80 default_server;
+    {% endif %}
+    server_name _;
+
+    root {{ webroot_path }};
+    index index.html;
+
+    location /.well-known/acme-challenge/ {
+        root {{ webroot_path }};
+    }
+
+    location / {
+        return 404;
+    }
+}
